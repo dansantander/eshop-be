@@ -26,6 +26,17 @@ module EshopBe
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins "http://localhost:3000"
+        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
+      end
+    
+      allow do
+        origins "https://eshop-be-1418.heroku.com"
+        resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
+      end
+    end
 
     # Don't generate system test files.
     config.generators.system_tests = nil
