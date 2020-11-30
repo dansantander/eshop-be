@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  #include CurrentUserConcern
+  include CurrentUserConcern
 
   def create
     user = User
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     end
   end
 
-=begin   def logged_in
+  def logged_in
     if @current_user
       render json: {
         logged_in: true,
@@ -36,5 +36,5 @@ class SessionsController < ApplicationController
     reset_session
     render json: { status: 200, logged_out: true}
   end
-=end
+
 end
