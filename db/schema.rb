@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_161008) do
     t.string "name", default: "", null: false
     t.text "description", default: "", null: false
     t.decimal "price", precision: 5, scale: 2, null: false
-    t.string "image", default: "https://placeimg.com/480/640/tech"
+    t.string "image", default: "https://placeimg.com/230/320/tech"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
