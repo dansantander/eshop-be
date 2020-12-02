@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'static#home'
   
   get '/products',         to:'products#index'
-  get '/products/:name',   to:'products#show'
+  get '/products/:id',   to:'products#show'
 
   resources :sessions, only: [:create]
   resources :registrations, only: [:create]

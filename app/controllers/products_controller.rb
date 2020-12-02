@@ -1,11 +1,13 @@
 class ProductsController < ApplicationController
+  include CurrentUserConcern
+
   def index
     @products = Product.all
     render json: { products: @products }, status: :ok
   end
 
   def show
-    @product = Product.where(name: params[:name])
+    @product = Product.find_by(id: params[:id])
     render json: @product, status: :ok
   end
 end
