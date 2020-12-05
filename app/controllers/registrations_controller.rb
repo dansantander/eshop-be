@@ -9,8 +9,6 @@ class RegistrationsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      # puts "**** session storage working? ****"
-      # puts session[:user_id]
       render json: {
         status: :created,
         user: user,
