@@ -14,18 +14,16 @@ class FavoritesController < ApplicationController
         favorite: favorite,
       }
     else 
-      render json: {
-        status: 500
-      }
+      render json: { status: 500 }
     end
   end
 
   def destroy
-    favorite = Favorite.find_by(user_id: @current_user.id, product_id: params["product_id"])
+    favorite = Favorite.find_by(user_id: @current_user.id, product_id: params["id"])
     if favorite.destroy
       render json: { status: 'removed' }
     else
-      render json: favorite.errors.messages.as_json, status: :not_acceptable
+      render json: { status: 500 }
     end
   end
 end
