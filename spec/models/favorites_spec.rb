@@ -9,6 +9,6 @@ RSpec.describe Favorite, type: :model do
     test_user
     test_product1
     expect(favorite.user_id).to eq(test_user.id)
-    expect(favorite.product_id).to eq( test_product1.id)
+    expect(favorite.product_id).to eq(test_product1.id)
   end
 end
