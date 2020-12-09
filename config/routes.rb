@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :registrations, only: [:create]
   resources :favorites, only: [:index, :create, :destroy]
 
-  delete :logout, to: "sessions#logout"
+  delete :logged_out, to: "sessions#logged_out"
   get :logged_in, to: "sessions#logged_in"
 end
