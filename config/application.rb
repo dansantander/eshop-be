@@ -33,7 +33,7 @@ module EshopBe
       end
     
       allow do
-        origins "https://eshop-be-1418.heroku.com"
+        origins "https://eshop-be-1418.herokuapp.com"
         resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
       end
     end
