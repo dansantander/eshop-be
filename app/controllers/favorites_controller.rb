@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   include CurrentUserConcern
 
   def index
-    favorites = @current_user.products
+    favorites = @current_user.products 
     render json: { favProducts: favorites }, status: :ok
   end
 
