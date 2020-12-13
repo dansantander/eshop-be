@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  include CurrentUserConcern
 
   def index
     @products = Product.all

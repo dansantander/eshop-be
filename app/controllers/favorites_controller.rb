@@ -1,12 +1,12 @@
 class FavoritesController < ApplicationController
-  include CurrentUserConcern
-  # before_action :sth
   def index
+    @current_user = User.find_by(id: params['user'])
     favorites = @current_user.products 
     render json: { favProducts: favorites }, status: :ok
   end
 
   def create
+    @current_user = User.find_by(id: params['user'])
     favorite = Favorite.create!(user_id: @current_user.id, product_id: params['product_id'])
     favorites = @current_user.products
     if favorite
@@ -20,6 +20,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    @current_user = User.find_by(id: params['id'])
     favorite = Favorite.find_by(user_id: @current_user.id, product_id: params['id'])
     favorites = @current_user.products
     if favorite.destroy
