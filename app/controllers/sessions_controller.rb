@@ -19,10 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def logged_in
-    puts '******* inside logged_in'
     @current_user = User.find_by(id: params['user'])
-    puts '******* what is current user?'
-    puts @current_user
     if @current_user
       render json: {
         logged_in: true,
