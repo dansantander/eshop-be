@@ -20,7 +20,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @current_user = User.find_by(id: params['id'])
+    data = JSON.parse(request.raw_post)
+    @current_user = User.find_by(id: data)
     favorite = Favorite.find_by(user_id: @current_user.id, product_id: params['id'])
     favorites = @current_user.products
     if favorite.destroy
