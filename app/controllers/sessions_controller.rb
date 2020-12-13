@@ -19,6 +19,10 @@ class SessionsController < ApplicationController
   end
 
   def logged_in
+    puts '******* inside logged_in'
+    @current_user = User.find_by(id: params['user'])
+    puts '******* what is current user?'
+    puts @current_user
     if @current_user
       render json: {
         logged_in: true,
@@ -29,10 +33,5 @@ class SessionsController < ApplicationController
         logged_in: false
       }
     end
-  end
-
-  def logged_out
-    reset_session
-    render json: { status: 200, logged_out: true }
   end
 end
