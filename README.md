@@ -7,7 +7,6 @@
 * [Live Demo](#demo)
 * [Installation](#installation)
 * [Getting Started](#getting-started)
-* [Tests](#tests)
 * [Built With](#built-with)
 * [Contributing](#contributing)
 * [Acknowledgments](#acknowledgments)
