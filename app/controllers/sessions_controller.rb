@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     if user
       render json: {
         logged_in: true,
-        user: user
+        user: { id: user.id, username: user.username, email: user.email }
       }
     else
       render json: {

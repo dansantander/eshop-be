@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
     if user
       render json: {
         signed_in: true,
-        user: user
+        user: { id: user.id, username: user.username, email: user.email }
       }
     else
       render json: {
