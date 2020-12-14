@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   def index
     @current_user = User.find_by(id: params['user'])
     favorites = @current_user.products
-    render json: { favProducts: favorites }, status: :ok
+    render json: { favProducts: favorites }
   end
 
   def create
@@ -11,11 +11,11 @@ class FavoritesController < ApplicationController
     favorites = @current_user.products
     if favorite
       render json: {
-        status: :created,
+        success: 'Product added to Favorites',
         favProducts: favorites
       }
     else
-      render json: { status: 500 }
+      render json: { errors: 'Product not added to Favorites' }
     end
   end
 
@@ -26,11 +26,11 @@ class FavoritesController < ApplicationController
     favorites = @current_user.products
     if favorite.destroy
       render json: {
-        status: :removed,
+        success: 'Product removed from Favorites',
         favProducts: favorites
       }
     else
-      render json: { status: 500 }
+      render json: { errors: 'Product not removed from Favorites' }
     end
   end
 end
