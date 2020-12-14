@@ -1,14 +1,13 @@
 # MALLSTER API
 >  A web API that retrieves a list of products, details about each product and a list of favorites products.
 
-![screenshot](trax.jpg)
-
 ## Table of Contents
 
 * [Endpoints](#features)
 * [Live Demo](#demo)
 * [Installation](#installation)
 * [Getting Started](#getting-started)
+* [Tests](#tests)
 * [Built With](#built-with)
 * [Contributing](#contributing)
 * [Acknowledgments](#acknowledgments)
@@ -17,7 +16,16 @@
 
 ## Endpoints
 
-  - 
+| TYPE          | URL                | EXPECTED                                          |
+| ------------- | ------------------ | ------------------------------------------------- |
+| GET           | /products          | JSON (products info)                              |
+| GET           | /products/:id      | JSON (product details)                            |
+| GET           | /favorites         | JSON (all favorite user's products)               |
+| POST          | /favorites/        | Add a favorite product to the list of favorites   |
+| DELETE        | /favorites/:id     | Remove a favorite product from user's favorites   |
+| POST          | /registrations     | JSON (create and register a new user)             |
+| POST          | /sessions          | JSON (log an already registered user in)          |
+| GET           | /logged_in         | JSON (check if a user is logged in aginst db)     |
 
 ## Demo
 
@@ -32,13 +40,15 @@
 
 ## Getting Started
 
-  - Head over to your server on localhost:3000 or 3001 if you'll be testing the front-end of this app simultaneously.
+  - Head over your server on localhost:3000, or localhost:3001 if you'll be testing the front-end<br>
+  and back-end of this app simultaneously.
 
 ## Built With
 
   - Ruby 2.6.5 <br>
   - Ruby on Rails 5.2.4 <br>
   - Git, Github and VScode <br>
+  - RSpec
   - Faker <br>
 
 ## Contributing
