@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
   def index
     @current_user = User.find_by(id: params['user'])
-    favorites = @current_user.products 
+    favorites = @current_user.products
     render json: { favProducts: favorites }, status: :ok
   end
 

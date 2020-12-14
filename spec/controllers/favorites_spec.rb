@@ -43,8 +43,8 @@ RSpec.describe 'Favorites', type: :request do
                                      password_confirmation: '123456' } }
     user = User.first
     post '/favorites', params: { product_id: test_product1.id, user: user.id }
-  
-    delete "/favorites/#{test_product1.id}", env: {'RAW_POST_DATA' => user.id.to_s}
+
+    delete "/favorites/#{test_product1.id}", env: { 'RAW_POST_DATA' => user.id.to_s }
 
     data = JSON.parse(response.body)
 
