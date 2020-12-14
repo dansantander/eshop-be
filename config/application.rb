@@ -33,7 +33,7 @@ module EshopBe
       end
     
       allow do
-        origins "https://eshop-be-1418.herokuapp.com"
+        origins "https://eloquent-montalcini-bccf89.netlify.app/"
         resource "*", headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
       end
     end
