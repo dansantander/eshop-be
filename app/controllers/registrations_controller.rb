@@ -1,10 +1,10 @@
 class RegistrationsController < ApplicationController
   def create
     user = User.create!(
-      username: params['user']['username'],
-      email: params['user']['email'],
-      password: params['user']['password'],
-      password_confirmation: params['user']['password_confirmation']
+      username: registration_params[:username],
+      email: registration_params[:email],
+      password: registration_params[:password],
+      password_confirmation: registration_params[:password_confirmation]
     )
 
     if user
@@ -17,5 +17,9 @@ class RegistrationsController < ApplicationController
         errors: user.errors.full_messages
       }
     end
+  end
+
+  def registration_params
+    params.require(:registration).permit(:username, :email, :password, :password_confirmation)
   end
 end
