@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
         user: { id: user.id, username: user.username, email: user.email }
       }
     else
-      render json: {
-        errors: 'Invalid user or password'
-      }
+      render json: { errors: 'Invalid email or password' }, status: :not_acceptable
     end
   end
+
+  private
 
   def session_params
     params.require(:session).permit(:email, :password)
