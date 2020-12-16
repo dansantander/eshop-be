@@ -13,7 +13,7 @@ class RegistrationsController < ApplicationController
         user: { id: user.id, username: user.username, email: user.email }
       }
     else
-      render json: { errors: user.errors.messages.first.join(" ") }, status: :not_acceptable
+      render json: { errors: user.errors.messages.first.join(' ') }, status: :not_acceptable
     end
   end
 

@@ -5,7 +5,7 @@ RSpec.describe 'Favorites', type: :request do
 
   it 'returns a list of favorites product' do
     test_product1
-    post '/registrations', params:  { registration:
+    post '/registrations', params: { registration:
                                     { username: 'TestUser',
                                       email: 'testuser@email.com',
                                       password: '123456',
@@ -32,9 +32,9 @@ RSpec.describe 'Favorites', type: :request do
                                      password_confirmation: '123456' } }
     user = User.last
 
-    post '/favorites', params: { 
-          product_id: test_product1.id,
-          user: user.id
+    post '/favorites', params: {
+      product_id: test_product1.id,
+      user: user.id
     }
 
     data = JSON.parse(response.body)
@@ -51,7 +51,7 @@ RSpec.describe 'Favorites', type: :request do
                                      password_confirmation: '123456' } }
     user = User.last
 
-    post '/favorites', params: { 
+    post '/favorites', params: {
       product_id: test_product1.id,
       user: user.id
     }
