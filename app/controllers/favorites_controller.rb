@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
         favProducts: favorites
       }
     else
-      render json: { errors: 'Product not added to Favorites' }
+      render json: { errors: 'Product not added to Favorites' }, status: :not_acceptable
     end
   end
 
@@ -30,7 +30,7 @@ class FavoritesController < ApplicationController
         favProducts: favorites
       }
     else
-      render json: { errors: 'Product not removed from Favorites' }
+      render json: { errors: 'Product not removed from Favorites' }, status: :not_acceptable
     end
   end
 
