@@ -37,6 +37,6 @@ class FavoritesController < ApplicationController
   private
 
   def favorite_params
-    params.require(:favorite).permit(:user, :product_id)
+    params.permit(:user, :product_id)
   end
 end
