@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true, length: { minimum: 5 }
   validates :email, uniqueness: true, presence: true
+
+  def self.find_authenticate(email, password)
+    self.find_by(email: email).try(:authenticate, password)
+  end
 end

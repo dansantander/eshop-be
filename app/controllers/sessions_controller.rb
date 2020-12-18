@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    user = User
-      .find_by(email: params[:session][:email])
-      .try(:authenticate, session_params[:password])
+    user = User.find_authenticate(session_params[:email], session_params[:password])
     if user
       render json: {
         logged_in: true,
