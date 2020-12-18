@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
 
   def self.find_authenticate(email, password)
-    self.find_by(email: email).try(:authenticate, password)
+    find_by(email: email).try(:authenticate, password)
   end
 end
