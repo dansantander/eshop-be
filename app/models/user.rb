@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :created_products, foreign_key: 'creator_id', class_name: 'Product'
+
   has_many :favorites
   has_many :products, through: :favorites
 
