@@ -29,17 +29,18 @@ class ProductsController < ApplicationController
   def destroy
     data = JSON.parse(request.raw_post)
     current_user = User.find_by(id: data)
-    favorite = Favorite.find_by(user_id: current_user.id, product_id: params['id'])
-    favorites = current_user.products
+    product = Product.find_by(creator_id: current_user.id, product_id: params['id'])
+    products = current_user.created_products
     if product.destroy
       render json: {
         success: 'Product removed from Favorites',
-        render json: { my_products: products }, status: :ok
+        my_products: products
       }
     else
       render json: { errors: 'Product not removed from Favorites' }, status: :not_acceptable
     end
   end
+
 
   private
 
