@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   def destroy
     data = JSON.parse(request.raw_post)
     current_user = User.find_by(id: data)
-    product = Product.find_by(creator_id: current_user.id, product_id: params['id'])
+    product = current_user.created_products.find_by(id: params['id'])
     products = current_user.created_products
     if product.destroy
       render json: {
