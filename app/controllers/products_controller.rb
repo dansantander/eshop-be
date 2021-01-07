@@ -11,11 +11,19 @@ class ProductsController < ApplicationController
   end
 
   def create
-    current_user = User.find_by(id: params['user'])
-    product = current_user.created_products.create!(product_params)
+    current_user = User.find_by(id: params['product']['user'])
+    puts "what is current user?"
+    puts "**** #{current_user}"
+    product = current_user.created_products.new(
+      name: params['product']['name'],
+      description: params['product']['description'],
+      price: params['product']['price']
+    )
 
-    if product
-      render json: { product: product }, status: :ok
+    if product.save
+      render json: { 
+      success: 'Product sucessfully created',  
+      product: product }, status: :ok
     else
       render json: { errors: 'Unable to upload product' }, status: :not_acceptable
     end
