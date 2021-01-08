@@ -17,11 +17,12 @@ class ProductsController < ApplicationController
       description: product_params[:description],
       price: product_params[:price]
     )
-
+    products = current_user.created_products
     if product.save
       render json: { 
-      success: 'Product sucessfully created',  
-      product: product }, status: :ok
+        success: 'Product sucessfully created',  
+        my_products: products },
+      status: :ok
     else
       render json: { errors: 'Unable to upload product' }, status: :not_acceptable
     end
