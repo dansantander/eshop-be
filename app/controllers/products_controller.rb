@@ -12,12 +12,10 @@ class ProductsController < ApplicationController
 
   def create
     current_user = User.find_by(id: params['product']['user'])
-    puts "what is current user?"
-    puts "**** #{current_user}"
     product = current_user.created_products.new(
-      name: params['product']['name'],
-      description: params['product']['description'],
-      price: params['product']['price']
+      name: product_params[:name],
+      description: product_params[:description],
+      price: product_params[:price]
     )
 
     if product.save
@@ -53,6 +51,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price)
   end
 end
